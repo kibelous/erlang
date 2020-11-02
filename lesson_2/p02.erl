@@ -1,6 +1,7 @@
 -module(p02).
 -export([but_last/1]).
 
+% ex. 2
 % p02:but_last([a,b,c,d,e,f]). 
 % [e,f]
 

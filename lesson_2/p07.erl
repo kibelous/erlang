@@ -1,6 +1,7 @@
 -module(p07).
 -export([flatten/1]).
 
+% ex. 7
 % p07:flatten([a,[],[b,[c,d],e]]).
 % [a, b, c, d, e]
 

@@ -1,6 +1,7 @@
 -module(p03).
 -export([element_at/2]).
 
+% ex. 3
 % p03:element_at([a,b,c,d,e,f], 4). 
 % d
 % p03:element_at([a,b,c,d,e,f], 10). 

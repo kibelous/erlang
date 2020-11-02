@@ -1,6 +1,7 @@
 -module(p15).
 -export([replicate/2]).
 
+% ex. 15
 % p15:replicate([a,b,c], 3).
 % [a,a,a,b,b,b,c,c,c]
 

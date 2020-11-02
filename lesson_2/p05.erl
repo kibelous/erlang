@@ -1,6 +1,7 @@
 -module(p05).
 -export([reverse/1]).
 
+% ex. 5
 % p05:reverse([1,2,3]).
 %  [3,2,1]
 
