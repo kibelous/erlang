@@ -6,11 +6,13 @@
 % [{4,a},b,{2,c},{2,a},d,{4,e}]
 
 encode_modified(L) ->
-    encode_modified(p10:encode(L), []).
+    encode_modified(L, []).
 
 encode_modified([], R) ->
     p05:reverse(R);
-encode_modified([{1,H}|T], R) ->
-    encode_modified(T, [H|R]);
-encode_modified([{_,_}=Tuple|T], R) ->
-    encode_modified(T, [Tuple|R]).
+encode_modified([H|T], [{N,H}|R]) ->
+    encode_modified(T, [{N+1,H}|R]);
+encode_modified([H,H|T], R) ->
+    encode_modified(T, [{2,H}|R]);
+encode_modified([H|T], R) ->
+    encode_modified(T, [H|R]).

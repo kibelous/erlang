@@ -9,11 +9,8 @@ decode(L) ->
     decode(L, []).
 
 decode([], R) ->
-    p05:reverse(p07:flatten(R));
+    p05:reverse(R);
+decode([{1,C}|T], R) ->
+    decode(T, [C|R]);
 decode([{N,C}|T], R) ->
-    decode(T, [repeat(N,C)|R]).
-
-repeat(0, _) ->
-    [];
-repeat(N, C) ->
-    [C|repeat(N-1, C)].
+    decode([{N-1,C}|T], [C|R]).

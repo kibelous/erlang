@@ -5,14 +5,11 @@
 % p07:flatten([a,[],[b,[c,d],e]]).
 % [a, b, c, d, e]
 
-flatten(L) ->
-    flatten(L, []).
-
-flatten([], Rest) ->
-    Rest;
-flatten([[]|T], Rest) ->
-    flatten(T, Rest);
-flatten([[_|_]=H|T], Rest) ->
-    flatten(H, flatten(T, Rest));
-flatten([H|T], Rest) -> 
-    [H|flatten(T, Rest)].
+flatten([]) ->
+    [];
+flatten([[]|T]) ->
+    flatten(T);
+flatten([[SubH|SubT]|T]) ->
+    flatten([SubH|[SubT|T]]);
+flatten([H|T]) -> 
+    [H|flatten(T)].

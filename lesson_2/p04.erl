@@ -10,6 +10,4 @@
 len([]) ->
     0;
 len([_|T]) ->
-    1 + len(T);
-len(_) ->
-    undefined.
+    len(T) + 1.

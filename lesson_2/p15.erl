@@ -5,12 +5,14 @@
 % p15:replicate([a,b,c], 3).
 % [a,a,a,b,b,b,c,c,c]
 
-replicate([], _) ->
-    [];
-replicate([H|T], N) ->
-    p07:flatten([repeat(N,H)|replicate(T, N)]).
+replicate(L, N) ->
+    replicate(L, N, []).
 
-repeat(0, _) ->
-    [];
-repeat(N, C) ->
-    [C|repeat(N-1, C)].
+replicate([], _, R) ->
+    p05:reverse(R);
+replicate([{1,C}|T], N, R) ->
+    replicate(T, N, [C|R]);
+replicate([{N2,C}|T], N, R) ->
+    replicate([{N2-1,C}|T], N, [C|R]);
+replicate([H|T], N, R) ->
+    replicate([{N,H}|T], N, R).
