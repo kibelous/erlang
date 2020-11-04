@@ -7,7 +7,7 @@
 
 but_last([]) ->
     [];
-but_last([H|[T|[]]]) ->
-    [H,T];
+but_last([H|[]]) ->
+    H;
 but_last([_|T]) ->
     but_last(T).

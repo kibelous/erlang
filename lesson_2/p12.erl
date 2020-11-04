@@ -9,14 +9,10 @@ decode_modified(L) ->
     decode_modified(L, []).
 
 decode_modified([], R) ->
-    p05:reverse(p07:flatten(R));
+    p05:reverse(R);
+decode_modified([{1,C}|T], R) ->
+    decode_modified(T, [C|R]);
 decode_modified([{N,C}|T], R) ->
-    decode_modified(T, [repeat(N,C)|R]);
+    decode_modified([{N-1,C}|T], [C|R]);
 decode_modified([H|T], R) ->
     decode_modified(T, [H|R]).
-
-repeat(0, _) ->
-    [];
-repeat(N, C) ->
-    [C|repeat(N-1, C)].
-
